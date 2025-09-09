@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/portfolio-website/',
+  base: '/noahjv.github.io/',
   plugins: [react(), tailwindcss()],
   resolve: { 
     alias: { 
