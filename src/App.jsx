@@ -88,8 +88,8 @@ const PROJECTS = [
 
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/", icon: <Github className="h-5 w-5" /> },
-  { label: "LinkedIn", href: "https://linkedin.com/", icon: <Linkedin className="h-5 w-5" /> },
-  { label: "E‑mail", href: "mailto:you@example.com", icon: <Mail className="h-5 w-5" /> },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/noah-verburg/", icon: <Linkedin className="h-5 w-5" /> },
+  { label: "E‑mail", href: "mailto:noahverburg2907@gmail.com", icon: <Mail className="h-5 w-5" /> },
 ];
 
 const TYPES = [
@@ -142,8 +142,7 @@ export default function Portfolio() {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🎮</span>
-            <span className="font-semibold tracking-tight">Noah – Portfolio</span>
+            <span className="font-semibold tracking-tight">Noah Verburg – Portfolio</span>
           </div>
           <div className="ml-auto flex items-center gap-2">
             <Button variant="ghost" size="icon" aria-label="Toggle language" className="rounded-2xl">
@@ -172,10 +171,10 @@ export default function Portfolio() {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-extrabold tracking-tight"
             >
-              Smart Media student crafting <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">audio, video & interactive</span> stories.
+              Smart Media Professional die werkt aan <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">audio, video & interactieve</span> content.
             </motion.h1>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose">
-              I make podcasts, short‑form ads, motion idents, and interactive articles. Below is a curated selection of my recent work.
+              Ik heb podcasts gemaakt, short-form video's, websites, social media posts en meer. Op deze website vind je een selectie van mijn werk.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {SOCIALS.map((s) => (
