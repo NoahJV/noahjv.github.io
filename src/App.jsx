@@ -19,8 +19,8 @@ const TYPES = [
   { key: "all", label: "All" },
   { key: "video", label: "Video" },
   { key: "audio", label: "Audio" },
+  { key: "website", label: "Website" },
   { key: "design", label: "Design" },
-  { key: "writing", label: "Writing" },
 ];
 
 function classNames(...xs) {
@@ -65,10 +65,10 @@ export default function Portfolio() {
     {
       id: "p02",
       title: t("projects.p2.title"),
-      type: "video",
+      type: "website",
       year: 2024,
-      tools: ["WIX studio", "Photoshop"],
-      tags: ["Podcast", "Interview", "Editing"],
+      tools: ["Photoshop", "WIX studio"],
+      tags: ["Website"],
       cover: "/Media/akhigym logo.JPG",
       description: t("projects.p2.description"),
       links: [{ label: t("projects.p2.linklabel"), href: "https://www.akhigym.nl/", icon: <Play className="h-4 w-4" /> }],
@@ -76,13 +76,13 @@ export default function Portfolio() {
     {
       id: "p03",
       title: t("projects.p3.title"),
-      type: "video",
-      year: "2025-2026",
-      tools: ["Audition", "Premiere Pro", "Photoshop"],
-      tags: ["Podcast", "Interview", "Editing"],
-      cover: "/Media/creative inside foto 2.png",
+      type: "website",
+      year: 2025,
+      tools: ["Photoshop", "WIX studio"],
+      tags: ["Website", "Photoshop"],
+      cover: "/Media/weijman challenge.png",
       description: t("projects.p3.description"),
-      links: [{ label: t("projects.p3.linklabel"), href: "#", icon: <Play className="h-4 w-4" /> }],
+      links: [{ label: t("projects.p3.linklabel"), href: "https://info0600935.wixstudio.com/weijman24uur", icon: <Play className="h-4 w-4" /> }],
     },
     {
       id: "p04",

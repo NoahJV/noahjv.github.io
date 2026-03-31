@@ -43,9 +43,9 @@ i18n
               linklabel: "Bezoeken"
             },
             p3:{
-              title: "",
-              description: "",
-              linklabel: ""
+              title: "Weijman 24 uur Challenge website",
+              description: "Tijdens mijn stage bij LINDSMA kreeg ik de opdracht om een website te maken voor Weijman, een van hun klanten. De website moest functioneren als het inschrijfformulier voor de Weijman 24 uur challenge. Ik had verschillende iteraties ontworpen van de opmaak, waarvan er een uiteindelijk goedgekeurd werd door zowel mijn stagebegeleider als de vertegenwoordiger van Weijman. Ik heb vooral gewerkt met Photoshop voor de visuele vormgeving en de website zelf gemaakt in WIX Studio.",
+              linklabel: "Bezoeken"
             },
             p4:{
               title: "",
@@ -89,17 +89,17 @@ i18n
             p1:{
               title: "Creative Inside - Podcast",
               description: "A B2B podcast produced for the social media agency LINDSMA. This was my graduation project, after I did my internship at this company. For this project I wrote the scripts, designed the branding, recorded and edited the episodes, and finally publicized them. I also made the podcast studio for LINDSMA, by selecting the appropriate equipment and setting up the furniture and wall panels.",
-              linklabel: ""
+              linklabel: "Watch here"
             },
             p2:{
               title: "AKHI gym - Website",
               description: "One assignment from my course was to make a website. For this assignment I approached the owner of AKHI gym, who let me know that he wanted his website to be modernised. I did marketresearch, analyzed websites from competing gyms and got a grasp of the wishes and demands from the owner (the most important demand was a reservation system to book lessons). After then making the website with WIX Studio, I presented it to the owner who let me know he was very satisfied with the result.",
-              linklabel: ""
+              linklabel: "Visit"
             },
             p3:{
-              title: "",
-              description: "",
-              linklabel: ""
+              title: "Weijman 24 hour Challenge website",
+              description: "During my internship at LINDSMA I was assigned to make a website for Weijman, one of their customers. The website whad to function as the registration form for the Weijman 24 hour challenge. I designed several iterations of the layout, after which I got the green light to move ahead with the final one. I mainly worked in Photoshop for the visual designs and I made the website with WIX Studio.",
+              linklabel: "Visit"
             },
             p4:{
               title: "",
