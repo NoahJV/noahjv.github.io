@@ -38,9 +38,9 @@ i18n
               linklabel: "Bekijken"
             },
             p2:{
-              title: "",
-              description: "",
-              linklabel: ""
+              title: "AKHI gym - Website",
+              description: "Voor een opdracht van mijn opleiding moest een website maken. Hiervoor heb ik de eigenaar van AKHI gym benaderd, die mij vertelde dat hij zijn website gemoderniseerd zou willen. Ik heb marktonderzoek gedaan, websites van concurerende sportscholen geanalyseerd en de wensen en eisen van de eigenaar genoteerd (de belangrijkste eis was een reserveringssysteem om lessen te boeken). Vervolgens heb ik de website met WIX Studio gemaakt en aan de klant gepresenteerd, met een zeer tevreden reactie.",
+              linklabel: "Bezoeken"
             },
             p3:{
               title: "",
@@ -92,8 +92,8 @@ i18n
               linklabel: ""
             },
             p2:{
-              title: "",
-              description: "",
+              title: "AKHI gym - Website",
+              description: "One assignment from my course was to make a website. For this assignment I approached the owner of AKHI gym, who let me know that he wanted his website to be modernised. I did marketresearch, analyzed websites from competing gyms and got a grasp of the wishes and demands from the owner (the most important demand was a reservation system to book lessons). After then making the website with WIX Studio, I presented it to the owner who let me know he was very satisfied with the result.",
               linklabel: ""
             },
             p3:{
