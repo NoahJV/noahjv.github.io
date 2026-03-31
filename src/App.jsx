@@ -7,84 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Github, Linkedin, Mail, Link2, Play, FileText, Filter, Sun, Moon, Globe } from "lucide-react";
-
-// --------------------------------------
-// DATA: edit this to add your real work
-// --------------------------------------
-const PROJECTS = [
-  {
-    id: "p01",
-    title: "Creative Inside - Podcast",
-    type: "video",
-    year: "2025-2026",
-    tools: ["Audition", "Premiere Pro", "Photoshop"],
-    tags: ["Podcast", "Interview", "Editing"],
-    cover: "/Media/creative inside foto 2.png",
-    description:
-      "Een B2B podcast geproduceerd voor het bedrijf LINDSMA. Dit was mijn afstudeeropdracht, nadat ik eerder bij hun stage had gelopen. Voor dit project heb ik scripts geschreven, de branding ontworpen, afleveringen opgenomen en deze gepubliceerd. Ik heb ook de podcast studio voor LINDSMA gemaakt, door de apparatuur uit te kiezen en het meubilair en muur panelen opzetten.",
-    links: [{ label: "Listen", href: "https://www.youtube.com/watch?v=ZTItOCpfGrU&list=PLt-O8e5mYQUVByUeMmb4WCcOnBIksVBjV", icon: <Play className="h-4 w-4" /> }],
-  },
-  {
-    id: "p02",
-    title: "Short-form Ad – RCE Campaign",
-    type: "video",
-    year: 2025,
-    tools: ["DaVinci Resolve", "After Effects"],
-    tags: ["Commercial", "Editing", "Color"],
-    cover: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop",
-    description:
-      "15s cutdown for a restaurant group. Deliverables for TikTok/Reels with SRT captions and brand-safe sound mix.",
-    links: [{ label: "Watch", href: "#", icon: <Play className="h-4 w-4" /> }],
-  },
-  {
-    id: "p03",
-    title: "‘Filtervrij’ – Social Media & Mental Health",
-    type: "audio",
-    year: 2024,
-    tools: ["Audition", "Notion", "Figma"],
-    tags: ["Podcast", "Production", "Branding"],
-    cover: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1600&auto=format&fit=crop",
-    description:
-      "Podcast concept with recurring segments: Kletskousen, Tegenpool, Tips & Tricks. I co-created and engineered.",
-    links: [{ label: "Listen", href: "#", icon: <Play className="h-4 w-4" /> }],
-  },
-  {
-    id: "p04",
-    title: "Motion Ident – LindenSteensma",
-    type: "design",
-    year: 2025,
-    tools: ["After Effects", "Illustrator"],
-    tags: ["Branding", "Motion"],
-    cover: "https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop",
-    description:
-      "A crisp motion ident for a creative agency podcast. Focus on clean geometry and audio sync.",
-    links: [{ label: "Case Study", href: "#", icon: <FileText className="h-4 w-4" /> }],
-  },
-  {
-    id: "p05",
-    title: "Interactive Article – AI Artists Label",
-    type: "writing",
-    year: 2024,
-    tools: ["Svelte", "Markdown"],
-    tags: ["Web", "Storytelling"],
-    cover: "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1600&auto=format&fit=crop",
-    description:
-      "Explainer on ethical AI artistry and label operations with embedded audio examples.",
-    links: [{ label: "Read", href: "#", icon: <FileText className="h-4 w-4" /> }],
-  },
-  {
-    id: "p06",
-    title: "University Reel – 2025 Showreel",
-    type: "video",
-    year: 2025,
-    tools: ["Premiere", "Resolve"],
-    tags: ["Montage", "Sound Design"],
-    cover: "https://images.unsplash.com/photo-1526312426976-593c12823ce0?q=80&w=1600&auto=format&fit=crop",
-    description:
-      "Highlights of cross‑disciplinary course work: docu, social edits, motion, and podcasting.",
-    links: [{ label: "Watch", href: "#", icon: <Play className="h-4 w-4" /> }],
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/", icon: <Github className="h-5 w-5" /> },
@@ -119,6 +42,82 @@ function useTheme() {
 }
 
 export default function Portfolio() {
+  const { i18n, t } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "nl" ? "en" : "nl";
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("lang", newLang); // remembers choice
+  };
+
+  const PROJECTS = [
+    {
+      id: "p01",
+      title: t("projects.p1.title"),
+      type: "video",
+      year: "2025-2026",
+      tools: ["Audition", "Premiere Pro", "Photoshop"],
+      tags: ["Podcast", "Interview", "Editing"],
+      cover: "/Media/creative inside foto 2.png",
+      description: t("projects.p1.description"),
+      links: [{ label: t("projects.p1.linklabel"), href: "https://www.youtube.com/watch?v=ZTItOCpfGrU&list=PLt-O8e5mYQUVByUeMmb4WCcOnBIksVBjV", icon: <Play className="h-4 w-4" /> }],
+    },
+    {
+      id: "p02",
+      title: t("projects.p2.title"),
+      type: "video",
+      year: "2025-2026",
+      tools: ["Audition", "Premiere Pro", "Photoshop"],
+      tags: ["Podcast", "Interview", "Editing"],
+      cover: "/Media/creative inside foto 2.png",
+      description: t("projects.p2.description"),
+      links: [{ label: t("projects.p2.linklabel"), href: "#", icon: <Play className="h-4 w-4" /> }],
+    },
+    {
+      id: "p03",
+      title: t("projects.p3.title"),
+      type: "video",
+      year: "2025-2026",
+      tools: ["Audition", "Premiere Pro", "Photoshop"],
+      tags: ["Podcast", "Interview", "Editing"],
+      cover: "/Media/creative inside foto 2.png",
+      description: t("projects.p3.description"),
+      links: [{ label: t("projects.p3.linklabel"), href: "#", icon: <Play className="h-4 w-4" /> }],
+    },
+    {
+      id: "p04",
+      title: t("projects.p4.title"),
+      type: "video",
+      year: "2025-2026",
+      tools: ["Audition", "Premiere Pro", "Photoshop"],
+      tags: ["Podcast", "Interview", "Editing"],
+      cover: "/Media/creative inside foto 2.png",
+      description: t("projects.p4.description"),
+      links: [{ label: t("projects.p4.linklabel"), href: "#", icon: <Play className="h-4 w-4" /> }],
+    },
+    {
+      id: "p05",
+      title: t("projects.p5.title"),
+      type: "video",
+      year: "2025-2026",
+      tools: ["Audition", "Premiere Pro", "Photoshop"],
+      tags: ["Podcast", "Interview", "Editing"],
+      cover: "/Media/creative inside foto 2.png",
+      description: t("projects.p5.description"),
+      links: [{ label: t("projects.p5.linklabel"), href: "#", icon: <Play className="h-4 w-4" /> }],
+    },
+    {
+      id: "p06",
+      title: t("projects.p6.title"),
+      type: "video",
+      year: "2025-2026",
+      tools: ["Audition", "Premiere Pro", "Photoshop"],
+      tags: ["Podcast", "Interview", "Editing"],
+      cover: "/Media/creative inside foto 2.png",
+      description: t("projects.p6.description"),
+      links: [{ label: t("projects.p6.linklabel"), href: "#", icon: <Play className="h-4 w-4" /> }],
+    },
+  ];
   const { theme, setTheme } = useTheme();
   const [tab, setTab] = useState("all");
   const [q, setQ] = useState("");
@@ -142,11 +141,11 @@ export default function Portfolio() {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <span className="font-semibold tracking-tight">Noah Verburg – Portfolio</span>
+            <span className="font-semibold tracking-tight">{t("nav.title")}</span>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <Button variant="ghost" size="icon" aria-label="Toggle language" className="rounded-2xl">
-              <Globe className="h-5 w-5" />
+            <Button variant="ghost" size="icon" aria-label="Toggle language" className="rounded-2xl" onClick={toggleLanguage}>
+              {i18n.language === "nl" ? "🇳🇱" : "🇬🇧"}
             </Button>
             <Button
               variant="ghost"
@@ -171,10 +170,12 @@ export default function Portfolio() {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-extrabold tracking-tight"
             >
-              Smart Media professional die <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">audio, video & interactieve</span> content maakt.
+              {t("hero.pre")}{" "}
+              <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{t("hero.highlight")}</span>{" "}
+              {t("hero.post")}
             </motion.h1>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose">
-              Ik heb ervaring met het maken van podcasts, short‑form videos, social media posts en websites. Op deze website zie je een aantal voorbeelden waar ik aan heb gewerkt.
+              {t("hero.blurb")}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {SOCIALS.map((s) => (
@@ -186,7 +187,7 @@ export default function Portfolio() {
                 </a>
               ))}
               <a href="#projects">
-                <Button className="rounded-2xl">See projects</Button>
+                <Button className="rounded-2xl">{t("actions.seeProjects")}</Button>
               </a>
             </div>
           </div>
@@ -205,7 +206,7 @@ export default function Portfolio() {
         <Card className="rounded-3xl">
           <CardHeader className="pb-2">
             <div className="flex flex-wrap items-center gap-3">
-              <CardTitle className="text-xl">Projects</CardTitle>
+              <CardTitle className="text-xl">{t("sections.projects")}</CardTitle>
               <div className="ml-auto flex items-center gap-2">
                 <Filter className="h-4 w-4 opacity-60" />
                 <Tabs value={tab} onValueChange={setTab}>
@@ -272,7 +273,7 @@ export default function Portfolio() {
       <section className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
         <Card className="md:col-span-2 rounded-3xl">
           <CardHeader>
-            <CardTitle>About</CardTitle>
+            <CardTitle>{t("sections.about")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-neutral-700 dark:text-neutral-300">
             <p>
@@ -290,7 +291,7 @@ export default function Portfolio() {
         </Card>
         <Card className="rounded-3xl">
           <CardHeader>
-            <CardTitle>Contact</CardTitle>
+            <CardTitle>{t("sections.contact")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex gap-2">
