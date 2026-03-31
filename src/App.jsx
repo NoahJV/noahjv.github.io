@@ -14,15 +14,15 @@ import { Github, Linkedin, Mail, Link2, Play, FileText, Filter, Sun, Moon, Globe
 const PROJECTS = [
   {
     id: "p01",
-    title: "Creative Inside – Podcast Episode 1",
-    type: "audio",
-    year: 2025,
-    tools: ["Reaper", "RX", "Premiere"],
+    title: "Creative Inside - Podcast",
+    type: "video",
+    year: "2025-2026",
+    tools: ["Audition", "Premiere Pro", "Photoshop"],
     tags: ["Podcast", "Interview", "Editing"],
-    cover: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600&auto=format&fit=crop",
+    cover: "/Media/creative inside foto 2.png",
     description:
-      "Launch episode for a company culture podcast. I handled format design, recording chain, post, and show notes.",
-    links: [{ label: "Listen", href: "#", icon: <Play className="h-4 w-4" /> }],
+      "Een B2B podcast geproduceerd voor het bedrijf LINDSMA. Dit was mijn afstudeeropdracht, nadat ik eerder bij hun stage had gelopen. Voor dit project heb ik scripts geschreven, de branding ontworpen, afleveringen opgenomen en deze gepubliceerd. Ik heb ook de podcast studio voor LINDSMA gemaakt, door de apparatuur uit te kiezen en het meubilair en muur panelen opzetten.",
+    links: [{ label: "Listen", href: "https://www.youtube.com/watch?v=ZTItOCpfGrU&list=PLt-O8e5mYQUVByUeMmb4WCcOnBIksVBjV", icon: <Play className="h-4 w-4" /> }],
   },
   {
     id: "p02",
@@ -171,10 +171,10 @@ export default function Portfolio() {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-extrabold tracking-tight"
             >
-              Smart Media Professional die werkt aan <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">audio, video & interactieve</span> content.
+              Smart Media professional die <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">audio, video & interactieve</span> content maakt.
             </motion.h1>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose">
-              Ik heb podcasts gemaakt, short-form video's, websites, social media posts en meer. Op deze website vind je een selectie van mijn werk.
+              Ik heb ervaring met het maken van podcasts, short‑form videos, social media posts en websites. Op deze website zie je een aantal voorbeelden waar ik aan heb gewerkt.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {SOCIALS.map((s) => (
@@ -190,11 +190,10 @@ export default function Portfolio() {
               </a>
             </div>
           </div>
-          <div className="aspect-video md:aspect-[4/3] rounded-3xl bg-gradient-to-br from-neutral-200 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 shadow-inner p-2">
+          <div className="aspect-video md:aspect-[3/3] rounded-3xl bg-gradient-to-br from-neutral-200 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 shadow-inner p-2">
             <div className="w-full h-full rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
-              <div className="text-center px-6">
-                <p className="font-medium">Drop a showreel image or video here</p>
-                <p className="text-sm opacity-80">Replace this box with your hero media or a headshot.</p>
+              <div className="aspect-video md:aspect-[3/3] rounded-3xl overflow-hidden">
+                <img src="/Media/profiel foto.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
               </div>
             </div>
           </div>
