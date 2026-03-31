@@ -133,7 +133,7 @@ export default function Portfolio() {
             .includes(ql)
         : true
     );
-  }, [tab, q]);
+  }, [tab, q, i18n.language]);
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
@@ -141,6 +141,7 @@ export default function Portfolio() {
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
           <div className="flex items-center gap-2">
+            <img src="Media/black hole.png" alt="Logo" className="h-7 w-7" />
             <span className="font-semibold tracking-tight">{t("nav.title")}</span>
           </div>
           <div className="ml-auto flex items-center gap-2">
@@ -192,7 +193,7 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="aspect-video md:aspect-[3/3] rounded-3xl bg-gradient-to-br from-neutral-200 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 shadow-inner p-2">
-            <div className="w-full h-full rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
+            <div className="w-full h-full rounded-2xl border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
               <div className="aspect-video md:aspect-[3/3] rounded-3xl overflow-hidden">
                 <img src="/Media/profiel foto.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
               </div>
