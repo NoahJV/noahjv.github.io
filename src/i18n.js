@@ -7,9 +7,10 @@ const getDefaultLanguage = () => {
   if (saved) return saved;
 
   const browserLang = navigator.language?.toLowerCase();
+  if (browserLang && browserLang.startsWith("en")) return "en";
   if (browserLang && browserLang.startsWith("nl")) return "nl";
 
-  return "en";
+  return "nl";
 };
 
 i18n
@@ -48,14 +49,15 @@ i18n
               linklabel: "Bezoeken"
             },
             p4:{
-              title: "Knuffelavonturen",
-              description: "Dit is een aflevering van een kindershow die ik heb ontworpen voor een opdracht van mijn opleiding. De doelgroep van deze kindershow bestaat uit de patiënten van het Emma Kinderziekenhuis. Ik begon met het concept van de show uitwerken, namelijk knuffels die op fantasieavonturen gaan, en vervolgens heb ik de karakters gemaakt en het script geschreven. Bij het schrijven van het script heb ik gewerkt met ChatGPT om te brainstormen. Daarna heb ik de aflevering zelf geproduceerd door een combinatie te gebruiken van afbeeldingen genereren in Leonardo AI voor consistentie, deze animeren met Kling AI en tenslotte heb ik de stemmen zelf ingesproken en Elevenlabs gebruikt om verschillende stemmen van mijn opnames te maken. Toen heb ik alles tot 1 video verwerkt met Premiere Pro.",
-              linklabel: "Bekijken"
-            },
-            p5:{
               title: "",
               description: "",
               linklabel: ""
+            },
+            p5:{
+              title: "Knuffelavonturen",
+              description: "Dit is een aflevering van een kindershow die ik heb ontworpen voor een opdracht van mijn opleiding. De doelgroep van deze kindershow bestaat uit de patiënten van het Emma Kinderziekenhuis. Ik begon met het concept van de show uitwerken, namelijk knuffels die op fantasieavonturen gaan, en vervolgens heb ik de karakters gemaakt en het script geschreven. Bij het schrijven van het script heb ik gewerkt met ChatGPT om te brainstormen. Daarna heb ik de aflevering zelf geproduceerd door een combinatie te gebruiken van afbeeldingen genereren in Leonardo AI voor consistentie, deze animeren met Kling AI en tenslotte heb ik de stemmen zelf ingesproken en Elevenlabs gebruikt om verschillende stemmen van mijn opnames te maken. Toen heb ik alles tot 1 video verwerkt met Premiere Pro.",
+              linklabel1: "Bekijken",
+              linklabel2: "10 pager"
             },
             p6:{
               title: "AKHI gym",
@@ -102,14 +104,15 @@ i18n
               linklabel: "Visit"
             },
             p4:{
-              title: "Knuffelavonturen",
-              description: "This is an episode from a Kids TV show that I designed for an assignment from my course. The target audience of this show consists of the patients from the Emma Children's Hospital. I started by working out the concept of theshow, this being stuffed animals going on fantasy adventures, and I then designed the characters and wrote the script for this episode. During the writing of the script I made use of ChatGPT to brainstorm. After that I produced the episode itself by using a combination of generating images in Leonardo AI for consistency, animating those images with Kling AI and at last I voiced al the characters myself, by using ElevenLabs to change my recordings into different voices. I then edited everything together with Premiere Pro.",
-              linklabel: "Watch"
-            },
-            p5:{
               title: "",
               description: "",
               linklabel: ""
+            },
+            p5:{
+              title: "Knuffelavonturen",
+              description: "This is an episode from a Kids TV show that I designed for an assignment from my course. The target audience of this show consists of the patients from the Emma Children's Hospital. I started by working out the concept of theshow, this being stuffed animals going on fantasy adventures, and I then designed the characters and wrote the script for this episode. During the writing of the script I made use of ChatGPT to brainstorm. After that I produced the episode itself by using a combination of generating images in Leonardo AI for consistency, animating those images with Kling AI and at last I voiced al the characters myself, by using ElevenLabs to change my recordings into different voices. I then edited everything together with Premiere Pro.",
+              linklabel1: "Watch",
+              linklabel2: "10 pager"
             },
             p6:{
               title: "AKHI gym",
