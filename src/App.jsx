@@ -322,10 +322,6 @@ export default function Portfolio() {
       <footer className="py-10 text-center text-sm text-neutral-500">
         <div className="max-w-6xl mx-auto px-4">
           <p>© {new Date().getFullYear()} Noah Verburg</p>
-          <p className="mt-1 inline-flex items-center gap-1">
-            <Link2 className="h-3.5 w-3.5" />
-            <span>Domain or Vercel/Netlify link here</span>
-          </p>
         </div>
       </footer>
 
@@ -333,7 +329,7 @@ export default function Portfolio() {
       <Dialog open={!!active} onOpenChange={() => setActive(null)}>
         <DialogContent className="max-w-3xl">
           <DialogHeader>
-            <DialogTitle className="flex items-center justify-between gap-3">
+            <DialogTitle className="flex items-center gap-3 flex-wrap">
               <span>{active?.title}</span>
               <Badge variant="outline" className="rounded-xl capitalize">{active?.type}</Badge>
             </DialogTitle>
