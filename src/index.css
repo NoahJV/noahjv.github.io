@@ -137,12 +137,12 @@
 }
 
 .stars {
-  background:#000 url(public/Media/stars.png) repeat top center;
+  background:#000 url(/Media/stars.png) repeat top center;
   z-index:-3;
 }
 
 .twinkling{
-  background:transparent url(public/Media/twinkling.png) repeat top center;
+  background:transparent url(/Media/twinkling.png) repeat top center;
   z-index:-2;
   animation:move-twink-back 400s linear infinite;
 }
