@@ -9,10 +9,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Github, Linkedin, Mail, Link2, Play, FileText, Filter, Sun, Moon, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+const email = ["noahverburg2907", "gmail.com"].join("@");
+
 const SOCIALS = [
-  { label: "GitHub", href: "https://github.com/", icon: <Github className="h-5 w-5" /> },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/noah-verburg/", icon: <Linkedin className="h-5 w-5" /> },
-  { label: "E-mail", href: "mailto:noahverburg2907@gmail.com", icon: <Mail className="h-5 w-5" /> },
+  { label: "E-mail", href: "mailto:" + email, icon: <Mail className="h-5 w-5" /> },
 ];
 
 const TYPES = [
@@ -310,7 +311,7 @@ export default function Portfolio() {
                 </a>
               ))}
             </div>
-            <a href="/Noah_CV.pdf" className="inline-flex items-center gap-2 text-sm hover:underline">
+            <a href="/Noah Verburg CV.pdf" className="inline-flex items-center gap-2 text-sm hover:underline">
               <FileText className="h-4 w-4" /> Download CV
             </a>
           </CardContent>
