@@ -23,11 +23,10 @@ i18n
             title: "Noah Verburg - Portfolio"
           },
           hero: {
-            pre: "Smart Media professional die ",
-            highlight: "audio, video & interactieve ",
-            post: "content maakt.",
+            pre: "Smart Media professional ervaren met",
+            highlight: "audiovisuele content & websites",
             blurb:
-              "Mijn eerdere werk omvat het maken van podcasts, short‑form videos, social media posts en websites. Hieronder zie je een selectie van projecten waar ik aan heb gewerkt."
+              "Mijn eerdere werk omvat het maken van podcasts, short‑form videos, social media posts en websites. Ik heb ook ervaring met het gebruiken van generatieve AI in het werkproces om de efficiëntie te verbeteren. Op deze website zijn een aantal projecten waar ik aan heb gewerkt te vinden."
           },
           actions: {
             seeProjects: "Bekijk projecten"
@@ -79,10 +78,10 @@ i18n
           },
           hero: {
             pre: "Smart Media professional crafting ",
-            highlight: "audio, video & interactive ",
+            highlight: "audiovisual content & websites ",
             post: "content.",
             blurb:
-              "My previous work includes making podcasts, short-form videos, social media posts and websites. Below is a curated selection of my work."
+              "My previous work includes making podcasts, short-form videos, social media posts and websites. I'm also experienced with using generative AI in my workflow to improve efficiency. On this website you can find a selection of my previous work."
           },
           actions: {
             seeProjects: "See projects"

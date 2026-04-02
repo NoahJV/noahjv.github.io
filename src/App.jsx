@@ -176,8 +176,7 @@ export default function Portfolio() {
               className="text-4xl md:text-5xl font-extrabold tracking-tight"
             >
               {t("hero.pre")}{" "}
-              <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{t("hero.highlight")}</span>{" "}
-              {t("hero.post")}
+              <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{t("hero.highlight")}</span>
             </motion.h1>
             <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose">
               {t("hero.blurb")}
@@ -196,7 +195,7 @@ export default function Portfolio() {
               </a>
             </div>
           </div>
-          <div className="aspect-video md:aspect-[3/3] rounded-3xl bg-gradient-to-br from-neutral-200 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900 shadow-inner p-2">
+          <div className="aspect-video md:aspect-[3/3] rounded-3xl bg-white/30 dark:bg-neutral-700/30 backdrop-blur-sm shadow-inner p-2">
             <div className="w-full h-full rounded-2xl border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
               <div className="aspect-video md:aspect-[3/3] rounded-3xl overflow-hidden">
                 <img src="/Media/profiel foto.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
@@ -208,7 +207,7 @@ export default function Portfolio() {
 
       {/* FILTER BAR */}
       <section id="projects" className="max-w-6xl mx-auto px-4 pb-6">
-        <Card className="rounded-3xl">
+        <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
           <CardHeader className="pb-2">
             <div className="flex flex-wrap items-center gap-3">
               <CardTitle className="text-xl">{t("sections.projects")}</CardTitle>
@@ -276,7 +275,7 @@ export default function Portfolio() {
 
       {/* ABOUT & CONTACT */}
       <section className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
-        <Card className="md:col-span-2 rounded-3xl">
+        <Card className="md:col-span-2 rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>{t("sections.about")}</CardTitle>
           </CardHeader>
@@ -294,7 +293,7 @@ export default function Portfolio() {
             </div>
           </CardContent>
         </Card>
-        <Card className="rounded-3xl">
+        <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
           <CardHeader>
             <CardTitle>{t("sections.contact")}</CardTitle>
           </CardHeader>
@@ -321,7 +320,7 @@ export default function Portfolio() {
       {/* FOOTER */}
       <footer className="py-10 text-center text-sm text-neutral-500">
         <div className="max-w-6xl mx-auto px-4">
-          <p>© {new Date().getFullYear()} Noah. Built with ❤ and coffee.</p>
+          <p>© {new Date().getFullYear()} Noah Verburg</p>
           <p className="mt-1 inline-flex items-center gap-1">
             <Link2 className="h-3.5 w-3.5" />
             <span>Domain or Vercel/Netlify link here</span>
