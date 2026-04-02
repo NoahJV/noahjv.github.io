@@ -49,9 +49,9 @@ i18n
               linklabel: "Bezoeken"
             },
             p4:{
-              title: "",
-              description: "",
-              linklabel: ""
+              title: "Social Media & Content Marketing stage",
+              description: "In het begin van 2025 heb ik 3 maanden stage gelopen bij LINDSMA (voor de rebranding bekend als LindenSteensma). Gedurende deze stage heb ik aan veel verschillende vormen van content gewerkt, zoals Photoshop templates maken/opschonen, posts maken met deze templates, video's editen, kleurcorrectie uitvoeren op foto's en meer. De ervaringen die ik tijdens deze stage heb opgedaan waren essentieel voor mijn ontwikkeling als mediaprofessional en de kwaliteit van mijn werk.",
+              linklabel: "Voorbeelden"
             },
             p5:{
               title: "Knuffelavonturen",
@@ -104,9 +104,9 @@ i18n
               linklabel: "Visit"
             },
             p4:{
-              title: "",
-              description: "",
-              linklabel: ""
+              title: "Social media & Content Marketing internship",
+              description: "In the beginning of 2025 I completed a 3-month internship at Lindsma (known as LindenSteensma before their rebranding). During this internship I worked on many different forms of content, like making/cleaning up Photoshop templates, making posts with these templates, editing video's, performing colour correction on photos and more. The experiences I gained during this internship were essential for my development as a mediaprofessional and for the quality of my work.",
+              linklabel: "Examples"
             },
             p5:{
               title: "Knuffelavonturen",

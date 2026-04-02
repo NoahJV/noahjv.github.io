@@ -20,6 +20,7 @@ const TYPES = [
   { key: "video", label: "Video"},
   { key: "podcast", label: "Podcast"},
   { key: "website", label: "Website" },
+  { key: "internship", label: "Internship" },
 ];
 
 function classNames(...xs) {
@@ -86,13 +87,13 @@ export default function Portfolio() {
     {
       id: "p04",
       title: t("projects.p4.title"),
-      type: "video",
+      type: "internship",
       year: 2025,
-      tools: ["Audition", "Premiere Pro", "Photoshop"],
-      tags: ["Podcast", "Interview", "Editing"],
-      cover: "/Media/creative inside foto 2.png",
+      tools: ["Premiere Pro", "Photoshop", "Lightroom", "After Effects"],
+      tags: ["Internship", "Editing", "Designing"],
+      cover: "/Media/Lindsma logo.png",
       description: t("projects.p4.description"),
-      links: [{ label: t("projects.p4.linklabel"), href: "https://youtu.be/xaLMjnNYwko", icon: <Play className="h-4 w-4" /> }],
+      links: [{ label: t("projects.p4.linklabel"), href: "https://drive.google.com/drive/folders/1s9qMCFbD9TlOduExIHg10q-Ajws5geBm?usp=sharing", icon: <Play className="h-4 w-4" /> }],
     },
     {
       id: "p05",
