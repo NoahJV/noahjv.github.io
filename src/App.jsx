@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/", icon: <Github className="h-5 w-5" /> },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/noah-verburg/", icon: <Linkedin className="h-5 w-5" /> },
-  { label: "E‑mail", href: "mailto:noahverburg2907@gmail.com", icon: <Mail className="h-5 w-5" /> },
+  { label: "E-mail", href: "mailto:noahverburg2907@gmail.com", icon: <Mail className="h-5 w-5" /> },
 ];
 
 const TYPES = [
@@ -136,7 +136,11 @@ export default function Portfolio() {
   }, [tab, q, i18n.language]);
 
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <div className="min-h-screen bg-transparent text-neutral-900 dark:text-neutral-100 relative">
+      {theme === "dark" && <div className="stars" />}
+      {theme === "dark" && <div className="twinkling" />}
+      {theme === "dark" && <div className="nebula" />}
+
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
