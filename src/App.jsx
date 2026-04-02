@@ -281,10 +281,10 @@ export default function Portfolio() {
           </CardHeader>
           <CardContent className="space-y-4 text-neutral-700 dark:text-neutral-300">
             <p>
-              Hey! I’m Noah, a Smart Media student at the University of Amsterdam. I’m into podcasts, game‑adjacent storytelling, and quick, clean edits that punch above their weight.
+              {t("about.blurb1")}
             </p>
             <p>
-              I also nerd out on workflows: versioning, templates, and loudness‑safe delivery. If you dig tidy projects and reliable turnarounds, we’ll get along.
+              {t("about.blurb2")}
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {["Podcast Production", "Video Editing", "Motion Basics", "Content Strategy", "Sound Design"].map((s) => (

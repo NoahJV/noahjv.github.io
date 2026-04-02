@@ -68,6 +68,10 @@ i18n
             projects: "Projecten",
             about: "Over mij",
             contact: "Contact"
+          },
+          about: {
+            blurb1: "Hoi, ik ben Noah! Ik ben afgestudeerd aan de opleiding Smart Media Production van de Hogeschool van Amsterdam en ik vind het leuk om content te produceren, zowel het opnemen als het editen ervan. Op deze opleiding heb ik vanaf het begin geleerd hoe ik generatieve AI kan integreren in het traditionele werkproces om efficiënter en beter media te kunnen produceren.",
+            blurb2: "Ik hou van het universum en laat dat graag terugkomen in mijn creatieve uitingen. In mijn vrije tijd speel ik graag video games, ik speel badminton en ik kijk gevarieerde content op YouTube, om te leren of als entertainment."
           }
         }
       },
@@ -123,6 +127,10 @@ i18n
             projects: "Projects",
             about: "About me",
             contact: "Contact"
+          },
+          about: {
+            blurb1: "Hi, I'm Noah! I graduated from the Smart Media Production course at the Amsterdam University of Applied Sciences and I like producing content, both the recording as well as the editing of it. On this course I learned from the very beginning how to integrate generative AI in the traditional workprocess to produce media better and more efficiently.",
+            blurb2: "I love the universe and love showing that in my creative expressions. In my free time I like playing video games, I play badminton and I watch a variety of content on YouTube, educational as well as entertainment."
           }
         }
       }
