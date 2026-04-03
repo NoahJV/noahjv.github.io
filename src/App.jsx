@@ -144,7 +144,7 @@ export default function Portfolio() {
 
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-3 flex items-center gap-3">
           <div className="flex items-center gap-2">
             <img src="Media/black hole.png" alt="Logo" className="h-7 w-7" />
             <span className="font-semibold tracking-tight">{t("nav.title")}</span>
@@ -167,53 +167,102 @@ export default function Portfolio() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8 py-14 md:py-20 items-center">
+      <section className="h-screen flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 w-full">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-extrabold tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
             >
               {t("hero.pre")}{" "}
               <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{t("hero.highlight")}</span>
             </motion.h1>
-            <p className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose"
+            >
               {t("hero.blurb")}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            </motion.p>
+            <motion.div
+              className="mt-6 flex flex-wrap gap-3"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.4,
+                  },
+                },
+              }}
+            >
               {SOCIALS.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noreferrer">
+                <motion.a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.4 }}
+                >
                   <Button variant="secondary" className="rounded-2xl">
                     <span className="mr-2">{s.icon}</span>
                     {s.label}
                   </Button>
-                </a>
+                </motion.a>
               ))}
-              <a href="#projects">
+              <motion.a
+                href="#projects"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.4 }}
+              >
                 <Button className="rounded-2xl">{t("actions.seeProjects")}</Button>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
-          <div className="aspect-video md:aspect-[3/3] rounded-3xl bg-white/30 dark:bg-neutral-700/30 backdrop-blur-sm shadow-inner p-2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="aspect-square md:aspect-[3/3] rounded-3xl bg-white/30 dark:bg-neutral-700/30 backdrop-blur-sm shadow-inner p-2 mx-auto w-full max-w-sm md:max-w-none"
+          >
             <div className="w-full h-full rounded-2xl border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
-              <div className="aspect-video md:aspect-[3/3] rounded-3xl overflow-hidden">
+              <div className="aspect-square md:aspect-[3/3] rounded-3xl overflow-hidden">
                 <img src="/Media/profiel foto.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
               </div>
             </div>
-          </div>
+          </motion.div>
+        </div>
         </div>
       </section>
 
       {/* FILTER BAR */}
-      <section id="projects" className="max-w-6xl mx-auto px-4 pb-6">
-        <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
-          <CardHeader className="pb-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <CardTitle className="text-xl">{t("sections.projects")}</CardTitle>
-              <div className="ml-auto flex items-center gap-2">
-                <Filter className="h-4 w-4 opacity-60" />
+      <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-8 sm:py-12 pb-6 sm:pb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
+          <CardHeader className="pb-2 sm:pb-3">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <CardTitle className="text-lg sm:text-xl">{t("sections.projects")}</CardTitle>
+              <div className="ml-auto flex items-center gap-1 sm:gap-2">
+                <Filter className="h-3 w-3 sm:h-4 sm:w-4 opacity-60" />
                 <Tabs value={tab} onValueChange={setTab}>
                   <TabsList className="rounded-2xl">
                     {TYPES.map((t) => (
@@ -236,7 +285,7 @@ export default function Portfolio() {
           </CardHeader>
           <CardContent>
             <AnimatePresence mode="popLayout">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
                 {filtered.map((p) => (
                   <motion.div layout key={p.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                     <article className="group rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow">
@@ -244,18 +293,18 @@ export default function Portfolio() {
                         <div className="aspect-video overflow-hidden">
                           <img src={p.cover} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform" />
                         </div>
-                        <div className="p-4">
-                          <div className="flex items-center justify-between">
-                            <h3 className="font-semibold leading-tight pr-2">{p.title}</h3>
-                            <Badge variant="outline" className="rounded-xl capitalize">{p.type}</Badge>
+                        <div className="p-3 sm:p-4">
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2">
+                            <h3 className="font-semibold leading-tight text-sm sm:text-base">{p.title}</h3>
+                            <Badge variant="outline" className="rounded-xl capitalize text-xs">{p.type}</Badge>
                           </div>
-                          <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300 line-clamp-2">{p.description}</p>
-                          <div className="mt-3 flex flex-wrap gap-2">
+                          <p className="mt-1 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 line-clamp-2">{p.description}</p>
+                          <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
                             {p.tags.map((t) => (
-                              <Badge key={t} variant="secondary" className="rounded-xl">{t}</Badge>
+                              <Badge key={t} variant="secondary" className="rounded-xl text-xs">{t}</Badge>
                             ))}
                           </div>
-                          <div className="mt-3 flex items-center gap-3 text-sm text-neutral-500">
+                          <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-neutral-500">
                             <span>{p.year}</span>
                             <span>•</span>
                             <span className="truncate">{p.tools.join(", ")}</span>
@@ -272,54 +321,70 @@ export default function Portfolio() {
             </AnimatePresence>
           </CardContent>
         </Card>
+        </motion.div>
       </section>
 
       {/* ABOUT & CONTACT */}
-      <section className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
-        <Card className="md:col-span-2 rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
+      <section className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-8 sm:py-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="md:col-span-2"
+        >
+          <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>{t("sections.about")}</CardTitle>
+            <CardTitle className="text-lg sm:text-xl">{t("sections.about")}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-neutral-700 dark:text-neutral-300">
+          <CardContent className="space-y-3 sm:space-y-4 text-sm sm:text-base text-neutral-700 dark:text-neutral-300">
             <p>
               {t("about.blurb1")}
             </p>
             <p>
               {t("about.blurb2")}
             </p>
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
               {["Podcast Production", "Video Editing", "Motion Basics", "Content Strategy", "Sound Design"].map((s) => (
-                <Badge key={s} variant="secondary" className="rounded-xl">{s}</Badge>
+                <Badge key={s} variant="secondary" className="rounded-xl text-xs">{s}</Badge>
               ))}
             </div>
           </CardContent>
         </Card>
-        <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>{t("sections.contact")}</CardTitle>
+            <CardTitle className="text-lg sm:text-xl">{t("sections.contact")}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex gap-2">
-              <Input placeholder="Your email" className="rounded-2xl" />
-              <Button className="rounded-2xl">Say hi</Button>
+          <CardContent className="space-y-2 sm:space-y-3">
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Input placeholder="Your email" className="rounded-2xl text-sm" />
+              <Button className="rounded-2xl text-sm">Say hi</Button>
             </div>
             <div className="flex flex-col gap-2">
               {SOCIALS.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm hover:underline">
+                <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs sm:text-sm hover:underline">
                   {s.icon}
                   <span>{s.label}</span>
                 </a>
               ))}
             </div>
-            <a href="/Noah Verburg CV.pdf" className="inline-flex items-center gap-2 text-sm hover:underline">
-              <FileText className="h-4 w-4" /> Download CV
+            <a href="/Noah Verburg CV.pdf" className="inline-flex items-center gap-2 text-xs sm:text-sm hover:underline">
+              <FileText className="h-3 w-3 sm:h-4 sm:w-4" /> Download CV
             </a>
           </CardContent>
         </Card>
+        </motion.div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 text-center text-sm text-neutral-500">
+      <footer className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-8 sm:py-10 text-center text-xs sm:text-sm text-neutral-500">
         <div className="max-w-6xl mx-auto px-4">
           <p>© {new Date().getFullYear()} Noah Verburg</p>
         </div>
@@ -327,7 +392,7 @@ export default function Portfolio() {
 
       {/* MODAL */}
       <Dialog open={!!active} onOpenChange={() => setActive(null)}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-2xl sm:max-w-3xl p-4 sm:p-6">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-3 flex-wrap">
               <span>{active?.title}</span>
