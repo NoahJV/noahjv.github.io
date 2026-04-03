@@ -124,6 +124,10 @@ export default function Portfolio() {
   const [q, setQ] = useState("");
   const [active, setActive] = useState(null);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const filtered = useMemo(() => {
     const ql = q.trim().toLowerCase();
     return PROJECTS.filter((p) => (tab === "all" ? true : p.type === tab)).filter((p) =>
@@ -145,10 +149,10 @@ export default function Portfolio() {
       {/* NAV */}
       <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-3 flex items-center gap-3">
-          <div className="flex items-center gap-2">
+          <button onClick={scrollToTop} className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity">
             <img src="Media/black hole.png" alt="Logo" className="h-7 w-7" />
             <span className="font-semibold tracking-tight">{t("nav.title")}</span>
-          </div>
+          </button>
           <div className="ml-auto flex items-center gap-2">
             <Button variant="ghost" size="icon" aria-label="Toggle language" className="rounded-2xl" onClick={toggleLanguage}>
               {i18n.language === "nl" ? "🇳🇱" : "🇬🇧"}
@@ -345,7 +349,7 @@ export default function Portfolio() {
               {t("about.blurb2")}
             </p>
             <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-              {["Podcast Production", "Video Editing", "Motion Basics", "Content Strategy", "Sound Design"].map((s) => (
+              {[t("about.tag1"), t("about.tag2"), t("about.tag3"), t("about.tag4")].map((s) => (
                 <Badge key={s} variant="secondary" className="rounded-xl text-xs">{s}</Badge>
               ))}
             </div>
