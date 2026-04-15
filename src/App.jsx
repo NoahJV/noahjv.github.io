@@ -29,17 +29,25 @@ function classNames(...xs) {
 }
 
 function useTheme() {
-  const [theme, setTheme] = useState(
-    typeof window !== "undefined" && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? "dark"
-      : "light"
-  );
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme");
+      return saved || "dark";
+    }
+    return "dark";
+  });
   React.useEffect(() => {
     const root = document.documentElement;
     if (theme === "dark") root.classList.add("dark");
     else root.classList.remove("dark");
   }, [theme]);
-  return { theme, setTheme };
+  const setThemeAndSave = (newTheme) => {
+    setTheme(newTheme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+    }
+  };
+  return { theme, setTheme: setThemeAndSave };
 }
 
 export default function Portfolio() {
@@ -154,14 +162,14 @@ export default function Portfolio() {
             <span className="font-semibold tracking-tight">{t("nav.title")}</span>
           </button>
           <div className="ml-auto flex items-center gap-2">
-            <Button variant="ghost" size="icon" aria-label="Toggle language" className="rounded-2xl" onClick={toggleLanguage}>
+            <Button variant="ghost" size="icon" aria-label="Toggle language" className="rounded-2xl cursor-pointer" onClick={toggleLanguage}>
               {i18n.language === "nl" ? "🇳🇱" : "🇬🇧"}
             </Button>
             <Button
               variant="ghost"
               size="icon"
               aria-label="Toggle theme"
-              className="rounded-2xl"
+              className="rounded-2xl cursor-pointer"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -182,7 +190,7 @@ export default function Portfolio() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
             >
               {t("hero.pre")}{" "}
-              <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">{t("hero.highlight")}</span>
+              <span className="bg-gradient-to-r from-fuchsia-600 to-blue-600 bg-clip-text text-transparent">{t("hero.highlight")}</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -219,7 +227,7 @@ export default function Portfolio() {
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  <Button variant="secondary" className="rounded-2xl">
+                  <Button variant="secondary" className="rounded-2xl cursor-pointer">
                     <span className="mr-2">{s.icon}</span>
                     {s.label}
                   </Button>
@@ -233,7 +241,7 @@ export default function Portfolio() {
                 }}
                 transition={{ duration: 0.4 }}
               >
-                <Button className="rounded-2xl">{t("actions.seeProjects")}</Button>
+                <Button className="rounded-2xl cursor-pointer">{t("actions.seeProjects")}</Button>
               </motion.a>
             </motion.div>
           </div>
@@ -266,7 +274,7 @@ export default function Portfolio() {
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <CardTitle className="text-lg sm:text-xl">{t("sections.projects")}</CardTitle>
               <div className="ml-auto flex items-center gap-1 sm:gap-2">
-                <Filter className="h-3 w-3 sm:h-4 sm:w-4 opacity-60" />
+                <span className="text-sm opacity-60">{t("projects.sort")}</span>
                 <Tabs value={tab} onValueChange={setTab}>
                   <TabsList className="rounded-2xl">
                     {TYPES.map((t) => (
@@ -292,10 +300,10 @@ export default function Portfolio() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
                 {filtered.map((p) => (
                   <motion.div layout key={p.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                    <article className="group rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow">
-                      <button onClick={() => setActive(p)} className="text-left w-full">
+                    <article className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md hover:scale-105 transition-all">
+                      <button onClick={() => setActive(p)} className="text-left w-full cursor-pointer">
                         <div className="aspect-video overflow-hidden">
-                          <img src={p.cover} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform" />
+                          <img src={p.cover} alt={p.title} className="h-full w-full object-cover transition-transform" />
                         </div>
                         <div className="p-3 sm:p-4">
                           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2">
@@ -308,7 +316,7 @@ export default function Portfolio() {
                               <Badge key={t} variant="secondary" className="rounded-xl text-xs">{t}</Badge>
                             ))}
                           </div>
-                          <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-neutral-500">
+                          <div className="mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm text-neutral-500">
                             <span>{p.year}</span>
                             <span>•</span>
                             <span className="truncate">{p.tools.join(", ")}</span>
@@ -367,10 +375,6 @@ export default function Portfolio() {
             <CardTitle className="text-lg sm:text-xl">{t("sections.contact")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2 sm:space-y-3">
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Input placeholder="Your email" className="rounded-2xl text-sm" />
-              <Button className="rounded-2xl text-sm">Say hi</Button>
-            </div>
             <div className="flex flex-col gap-2">
               {SOCIALS.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-xs sm:text-sm hover:underline">
