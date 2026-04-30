@@ -271,14 +271,14 @@ export default function Portfolio() {
         >
           <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
           <CardHeader className="pb-2 sm:pb-3">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="flex w-full flex-wrap items-center gap-2 sm:gap-3">
               <CardTitle className="text-lg sm:text-xl">{t("sections.projects")}</CardTitle>
-              <div className="ml-auto flex items-center gap-1 sm:gap-2">
-                <span className="text-sm opacity-60">{t("projects.sort")}</span>
+              <div className="flex items-center gap-1 sm:gap-2 ml-auto flex-wrap">
+                <Filter className="h-3 w-3 sm:h-4 sm:w-4 opacity-60" />
                 <Tabs value={tab} onValueChange={setTab}>
                   <TabsList className="rounded-2xl">
                     {TYPES.map((t) => (
-                      <TabsTrigger key={t.key} value={t.key} className="rounded-xl">
+                      <TabsTrigger key={t.key} value={t.key} className="rounded-xl cursor-pointer">
                         {t.label}
                       </TabsTrigger>
                     ))}
@@ -286,12 +286,12 @@ export default function Portfolio() {
                 </Tabs>
               </div>
             </div>
-            <div className="mt-3">
+            <div className="mt-3 w-full">
               <Input
                 placeholder="Search title, tools, or tags…"
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
-                className="rounded-2xl"
+                className="rounded-2xl w-full sm:max-w-sm"
               />
             </div>
           </CardHeader>

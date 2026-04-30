@@ -32,7 +32,7 @@ i18n
             seeProjects: "Bekijk projecten"
           },
           projects:{
-            sort: "Sorteer op",
+            filter: "Filter op",
             p1:{
               title: "Creative Inside",
               description: "Een B2B podcast geproduceerd voor het bedrijf LINDSMA. Dit was mijn afstudeeropdracht, nadat ik eerder bij hun stage had gelopen. Voor dit project heb ik scripts geschreven, de branding ontworpen, een intro geanimeerd, afleveringen opgenomen en deze gepubliceerd. Ik heb ook de podcast studio voor LINDSMA gemaakt, door de apparatuur uit te kiezen en het meubilair en muur panelen opzetten.",
@@ -44,7 +44,7 @@ i18n
               linklabel: "Bekijken"
             },
             p3:{
-              title: "Weijman 24 uur Challenge",
+              title: "Weijman",
               description: "Tijdens mijn stage bij LINDSMA kreeg ik de opdracht om een website te maken voor Weijman, een van hun klanten. De website moest functioneren als het inschrijfformulier voor de Weijman 24 uur challenge. Ik had verschillende iteraties ontworpen van de opmaak, waarvan er een uiteindelijk goedgekeurd werd door zowel mijn stagebegeleider als de vertegenwoordiger van Weijman. Ik heb vooral gewerkt met Photoshop voor de visuele vormgeving en de website zelf gemaakt in WIX Studio.",
               linklabel: "Bezoeken"
             },
@@ -96,7 +96,7 @@ i18n
             seeProjects: "See projects"
           },
           projects:{
-            sort: "Sort by",
+            filter: "Filter by",
             p1:{
               title: "Creative Inside",
               description: "A B2B podcast produced for the social media agency LINDSMA. This was my graduation project, after I did my internship at this company. For this project I wrote the scripts, designed the branding, animated the intro, recorded and edited the episodes, and finally publicized them. I also made the podcast studio for LINDSMA, by selecting the appropriate equipment and setting up the furniture and wall panels.",
@@ -108,7 +108,7 @@ i18n
               linklabel: "Watch"
             },
             p3:{
-              title: "Weijman 24 hour Challenge",
+              title: "Weijman",
               description: "During my internship at LINDSMA I was assigned to make a website for Weijman, one of their customers. The website whad to function as the registration form for the Weijman 24 hour challenge. I designed several iterations of the layout, after which I got the green light to move ahead with the final one. I mainly worked in Photoshop for the visual designs and I made the website with WIX Studio.",
               linklabel: "Visit"
             },
