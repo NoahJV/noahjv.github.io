@@ -150,7 +150,20 @@
 .twinkling{
   background:transparent url(/Media/twinkling.png) repeat top center;
   z-index:-2;
-  animation:move-twink-back 400s linear infinite;
+}
+
+/* Only animate twinkling on high-performance devices that support animations */
+html.high-perf .twinkling {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: move-twink-back 400s linear infinite;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .twinkling {
+    animation: none !important;
+  }
 }
 
 .nebula {
