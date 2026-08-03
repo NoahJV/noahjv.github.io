@@ -132,6 +132,25 @@ export default function Portfolio() {
   const [q, setQ] = useState("");
   const [active, setActive] = useState(null);
 
+  React.useEffect(() => {
+    if (!active || typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    if (!mediaQuery.matches) return;
+
+    const handleBackButton = () => {
+      setActive(null);
+      window.history.pushState(null, "", window.location.href);
+    };
+
+    window.history.pushState({ dialogOpen: true }, "", window.location.href);
+    window.addEventListener("popstate", handleBackButton);
+
+    return () => {
+      window.removeEventListener("popstate", handleBackButton);
+    };
+  }, [active]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
