@@ -124,7 +124,7 @@ export default function Portfolio() {
       tags: ["Website", "Designing"],
       cover: "/Media/akhigym logo.JPG",
       description: t("projects.p6.description"),
-      links: [{ label: t("projects.p6.linklabel"), href: "https://www.akhigym.nl/", icon: <Play className="h-4 w-4" /> }],
+      links: [{ label: t("projects.p6.linklabel"), href: "https://noahverburg2907.wixstudio.com/akhigym", icon: <Play className="h-4 w-4" /> }],
     },
   ];
   const { theme, setTheme } = useTheme();
