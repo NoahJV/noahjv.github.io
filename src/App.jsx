@@ -253,7 +253,7 @@ export default function Portfolio() {
           >
             <div className="w-full h-full rounded-2xl border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
               <div className="aspect-square md:aspect-[3/3] rounded-3xl overflow-hidden">
-                <img src="/Media/profiel foto.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
+                <img src="/Media/hero foto 1.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
               </div>
             </div>
           </motion.div>
