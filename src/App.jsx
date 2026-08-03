@@ -190,7 +190,7 @@ export default function Portfolio() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
             >
               {t("hero.pre")}{" "}
-              <span className="bg-gradient-to-r from-fuchsia-600 to-blue-600 bg-clip-text text-transparent">{t("hero.highlight")}</span>
+              <span className="animated-gradient-text bg-clip-text text-transparent">{t("hero.highlight")}</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 10 }}

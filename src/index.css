@@ -174,3 +174,31 @@ html.high-perf .twinkling {
   filter: blur(2px);
   opacity: 1;
 }
+
+@keyframes flow-gradient {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  background-image: linear-gradient(90deg, #bc55f7 0%, #8b5cf6 33%, #0ea5e9 66%, #bc55f7 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+html.high-perf .animated-gradient-text {
+  animation: flow-gradient 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-gradient-text {
+    animation: none;
+  }
+}
