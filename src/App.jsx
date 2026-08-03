@@ -310,7 +310,7 @@ export default function Portfolio() {
                             <h3 className="font-semibold leading-tight text-sm sm:text-base">{p.title}</h3>
                             <Badge variant="outline" className="rounded-xl capitalize text-xs">{p.type}</Badge>
                           </div>
-                          <p className="mt-1 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 line-clamp-2">{p.description}</p>
+                          <p className="mt-1 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 whitespace-pre-line line-clamp-2">{p.description}</p>
                           <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
                             {p.tags.map((t) => (
                               <Badge key={t} variant="secondary" className="rounded-xl text-xs">{t}</Badge>
@@ -410,7 +410,7 @@ export default function Portfolio() {
           {active && (
             <div className="space-y-4">
               <img src={active.cover} alt={active.title} className="rounded-2xl w-full aspect-video object-cover" />
-              <p className="text-neutral-700 dark:text-neutral-300">{active.description}</p>
+              <p className="text-neutral-700 dark:text-neutral-300 whitespace-pre-line">{active.description}</p>
               <div className="flex flex-wrap gap-2">
                 {active.tags.map((t) => (
                   <Badge key={t} variant="secondary" className="rounded-xl">{t}</Badge>
