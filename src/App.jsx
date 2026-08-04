@@ -9,13 +9,16 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Github, Linkedin, Mail, Link2, Play, FileText, Filter, Sun, Moon, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+// Shared contact details reused in the hero and contact sections.
 const email = ["noahverburg2907", "gmail.com"].join("@");
 
+// Social links displayed in the header, hero, and contact card.
 const SOCIALS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/noah-verburg/", icon: <Linkedin className="h-5 w-5" /> },
   { label: "E-mail", href: "mailto:" + email, icon: <Mail className="h-5 w-5" /> },
 ];
 
+// Available project categories for the filter tabs.
 const TYPES = [
   { key: "all", label: "All" },
   { key: "video", label: "Video"},
@@ -24,10 +27,12 @@ const TYPES = [
   { key: "internship", label: "Internship" },
 ];
 
+// Small helper to avoid passing empty class names around.
 function classNames(...xs) {
   return xs.filter(Boolean).join(" ");
 }
 
+// Persist the chosen theme and keep the document root in sync.
 function useTheme() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
@@ -53,12 +58,14 @@ function useTheme() {
 export default function Portfolio() {
   const { i18n, t } = useTranslation();
 
+  // Switch between Dutch and English and remember the choice locally.
   const toggleLanguage = () => {
     const newLang = i18n.language === "nl" ? "en" : "nl";
     i18n.changeLanguage(newLang);
     localStorage.setItem("lang", newLang); // remembers choice
   };
 
+  // Localized project data for the portfolio cards and detail dialog.
   const PROJECTS = [
     {
       id: "p01",
@@ -128,10 +135,13 @@ export default function Portfolio() {
     },
   ];
   const { theme, setTheme } = useTheme();
+
+  // UI state for the project filters, search field, and modal view.
   const [tab, setTab] = useState("all");
   const [q, setQ] = useState("");
   const [active, setActive] = useState(null);
 
+  // Keep browser history in sync when the project modal is opened on smaller screens.
   React.useEffect(() => {
     if (!active || typeof window === "undefined") return;
 
@@ -151,10 +161,12 @@ export default function Portfolio() {
     };
   }, [active]);
 
+  // Smoothly return the user to the top of the page.
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Derive the visible projects from the current tab, search term, and language.
   const filtered = useMemo(() => {
     const ql = q.trim().toLowerCase();
     return PROJECTS.filter((p) => (tab === "all" ? true : p.type === tab)).filter((p) =>
