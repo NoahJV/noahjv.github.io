@@ -34,7 +34,7 @@ function performFpsTest(callback) {
     return;
   }
 
-  // Check for low-end device indicators
+  // Check for low-end device indicators before running the FPS probe.
   if (isLowEndDevice()) {
     callback(false);
     return;
@@ -63,13 +63,14 @@ function performFpsTest(callback) {
 }
 
 function isLowEndDevice() {
-  // Check device memory (if available)
-  if (navigator.deviceMemory && navigator.deviceMemory <= 2) {
-    return true;
-  }
+  const connection = navigator.connection || {};
+  const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory <= 4;
+  const hasFewCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+  const isSlowConnection = Boolean(
+    connection.saveData ||
+    ['slow-2g', '2g'].includes(connection.effectiveType || '')
+  );
 
-  // Check for low-end indicators via User-Agent if needed
-  // This is a fallback for older devices
   const ua = navigator.userAgent.toLowerCase();
   const lowEndPatterns = [
     'nexus 5',
@@ -79,8 +80,8 @@ function isLowEndDevice() {
     'samsung j',
     'iphone 6',
   ];
-  
-  return lowEndPatterns.some(pattern => ua.includes(pattern));
+
+  return hasLowMemory || hasFewCores || isSlowConnection || lowEndPatterns.some(pattern => ua.includes(pattern));
 }
 
 function applyPerformanceClass(level) {

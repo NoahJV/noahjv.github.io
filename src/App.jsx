@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -57,6 +57,10 @@ function useTheme() {
 
 export default function Portfolio() {
   const { i18n, t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
+  const isLowPerformanceDevice =
+    typeof document !== "undefined" && document.documentElement.classList.contains("low-perf");
+  const enableAnimations = !shouldReduceMotion && !isLowPerformanceDevice;
 
   // Switch between Dutch and English and remember the choice locally.
   const toggleLanguage = () => {
@@ -215,27 +219,27 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={enableAnimations ? { opacity: 0, y: 10 } : false}
+              animate={enableAnimations ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              transition={enableAnimations ? { duration: 0.6 } : undefined}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
             >
               {t("hero.pre")}{" "}
               <span className="animated-gradient-text bg-clip-text text-transparent">{t("hero.highlight")}</span>
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={enableAnimations ? { opacity: 0, y: 10 } : false}
+              animate={enableAnimations ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              transition={enableAnimations ? { duration: 0.6, delay: 0.2 } : undefined}
               className="mt-4 text-neutral-600 dark:text-neutral-300 max-w-prose"
             >
               {t("hero.blurb")}
             </motion.p>
             <motion.div
               className="mt-6 flex flex-wrap gap-3"
-              initial="hidden"
-              animate="visible"
-              variants={{
+              initial={enableAnimations ? "hidden" : false}
+              animate={enableAnimations ? "visible" : { opacity: 1 }}
+              variants={enableAnimations ? {
                 hidden: { opacity: 0 },
                 visible: {
                   opacity: 1,
@@ -244,7 +248,7 @@ export default function Portfolio() {
                     delayChildren: 0.4,
                   },
                 },
-              }}
+              } : undefined}
             >
               {SOCIALS.map((s) => (
                 <motion.a
@@ -252,11 +256,9 @@ export default function Portfolio() {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.4 }}
+                  initial={enableAnimations ? { opacity: 0, y: 10 } : false}
+                  animate={enableAnimations ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                  transition={enableAnimations ? { duration: 0.4 } : undefined}
                 >
                   <Button variant="secondary" className="rounded-2xl cursor-pointer">
                     <span className="mr-2">{s.icon}</span>
@@ -266,25 +268,23 @@ export default function Portfolio() {
               ))}
               <motion.a
                 href="#projects"
-                variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.4 }}
+                initial={enableAnimations ? { opacity: 0, y: 10 } : false}
+                animate={enableAnimations ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                transition={enableAnimations ? { duration: 0.4 } : undefined}
               >
                 <Button className="rounded-2xl cursor-pointer">{t("actions.seeProjects")}</Button>
               </motion.a>
             </motion.div>
           </div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            initial={enableAnimations ? { opacity: 0, scale: 0.9 } : false}
+            animate={enableAnimations ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
+            transition={enableAnimations ? { duration: 0.7, delay: 0.3 } : undefined}
             className="aspect-square md:aspect-[3/3] rounded-3xl bg-white/30 dark:bg-neutral-700/30 backdrop-blur-sm shadow-inner p-2 mx-auto w-full max-w-sm md:max-w-none"
           >
             <div className="w-full h-full rounded-2xl border-neutral-300 dark:border-neutral-700 grid place-items-center text-neutral-500">
               <div className="aspect-square md:aspect-[3/3] rounded-3xl overflow-hidden">
-                <img src="/Media/profiel foto.png" alt="Hero" className="w-full h-full object-cover object-[center_20%]"></img>
+                <img src="/Media/profiel foto.png" alt="Hero" loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover object-[center_20%]"></img>
               </div>
             </div>
           </motion.div>
@@ -295,9 +295,9 @@ export default function Portfolio() {
       {/* FILTER BAR */}
       <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-8 sm:py-12 pb-6 sm:pb-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={enableAnimations ? { opacity: 0, y: 20 } : false}
+          whileInView={enableAnimations ? { opacity: 1, y: 0 } : undefined}
+          transition={enableAnimations ? { duration: 0.6 } : undefined}
           viewport={{ once: true, amount: 0.2 }}
         >
           <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
@@ -330,11 +330,11 @@ export default function Portfolio() {
             <AnimatePresence mode="popLayout">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
                 {filtered.map((p) => (
-                  <motion.div layout key={p.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                  <motion.div layout={enableAnimations} key={p.id} initial={enableAnimations ? { opacity: 0 } : false} animate={enableAnimations ? { opacity: 1 } : { opacity: 1 }} exit={enableAnimations ? { opacity: 0 } : undefined}>
                     <article className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md hover:scale-105 transition-all">
                       <button onClick={() => setActive(p)} className="text-left w-full cursor-pointer">
                         <div className="aspect-video overflow-hidden">
-                          <img src={p.cover} alt={p.title} className="h-full w-full object-cover transition-transform" />
+                          <img src={p.cover} alt={p.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform" />
                         </div>
                         <div className="p-3 sm:p-4">
                           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2">
@@ -370,9 +370,9 @@ export default function Portfolio() {
       {/* ABOUT & CONTACT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-4 md:px-6 py-8 sm:py-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={enableAnimations ? { opacity: 0, y: 20 } : false}
+          whileInView={enableAnimations ? { opacity: 1, y: 0 } : undefined}
+          transition={enableAnimations ? { duration: 0.6 } : undefined}
           viewport={{ once: true, amount: 0.2 }}
           className="md:col-span-2"
         >
@@ -396,9 +396,9 @@ export default function Portfolio() {
         </Card>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={enableAnimations ? { opacity: 0, y: 20 } : false}
+          whileInView={enableAnimations ? { opacity: 1, y: 0 } : undefined}
+          transition={enableAnimations ? { duration: 0.6, delay: 0.2 } : undefined}
           viewport={{ once: true, amount: 0.2 }}
         >
           <Card className="rounded-3xl bg-white/20 dark:bg-neutral-900/20 backdrop-blur-sm">
@@ -440,7 +440,7 @@ export default function Portfolio() {
           </DialogHeader>
           {active && (
             <div className="space-y-4">
-              <img src={active.cover} alt={active.title} className="rounded-2xl w-full aspect-video object-cover" />
+              <img src={active.cover} alt={active.title} loading="lazy" decoding="async" className="rounded-2xl w-full aspect-video object-cover" />
               <p className="text-neutral-700 dark:text-neutral-300 whitespace-pre-line">{active.description}</p>
               <div className="flex flex-wrap gap-2">
                 {active.tags.map((t) => (
